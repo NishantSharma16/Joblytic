@@ -29,12 +29,16 @@ connectDB();
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || corsOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(null, false);
-      }
-    },
+  if (
+    !origin ||
+    corsOrigins.includes(origin) ||
+    origin.includes('vercel.app')
+  ) {
+    callback(null, true);
+  } else {
+    callback(new Error('Not allowed by CORS'));
+  }
+},
     credentials: true,
   })
 );
