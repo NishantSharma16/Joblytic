@@ -102,6 +102,13 @@ export const validateEnv = () => {
 
 export const corsOrigins = [
   env.clientUrl,
+
   'http://localhost:5173',
   'http://127.0.0.1:5173',
+
+  // Production frontend
+  'https://joblytic-azure.vercel.app',
+
+  // Current Vercel preview deployment
+  'https://joblytic-4iqbrkj57-nishantsharma16s-projects.vercel.app',
 ].filter(Boolean);
